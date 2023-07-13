@@ -28,4 +28,12 @@ class Team
       player.contract_length <= 24
     end
   end
+
+  def total_value
+    cost = 
+    @roster.map do |player|
+      player.total_cost
+    end
+    cost.sum
+  end
 end
