@@ -30,6 +30,9 @@ class Team
   end
 
   def total_value
+    # @roster.sum. do |player|
+    # player.total_cost
+    # end
     cost = 
     @roster.map do |player|
       player.total_cost
@@ -43,6 +46,17 @@ class Team
 
   def average_cost_of_player
    average = total_value / player_count
+   group_1 = average.to_s.chars.to_a.reverse.each_slice(3).map{|x| x.join}
+   group_2 = group_1.join(",").reverse
+   "$#{group_2}"
+  end
+
+  def players_by_last_name
+    players =
+    @roster.map do |player|
+      player.last_name
+    end
+    players.sort.join(", ")
   end
 
 end
